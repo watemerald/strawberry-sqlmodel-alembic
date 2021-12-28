@@ -1,0 +1,12 @@
+{
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
+  "python.linting.mypyEnabled": true,
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": false,
+  "python.languageServer": "Pylance",
+  "python.analysis.typeCheckingMode": "basic"
+}

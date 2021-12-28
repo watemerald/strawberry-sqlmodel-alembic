@@ -1,0 +1,46 @@
+[tool.poetry]
+authors = ["Andrii Sherman <hi@andriisherman.com>"]
+description = "A Strawberry-graphql, SQLModel, and Alembic template"
+name = "strawberry-sqlmodel-alembic"
+version = "0.1.0"
+
+[tool.poetry.dependencies]
+SQLAlchemy = {extras = ["asyncio"], version = "^1.4.29"}
+alembic = "^1.7.5"
+asyncpg = "^0.25.0"
+fastapi = "^0.70.1"
+greenlet = "^1.1.2"
+python = "^3.9"
+python-dotenv = "^0.19.2"
+sqlmodel = "^0.0.5"
+strawberry-graphql = "^0.93.13"
+uvicorn = {extras = ["standard"], version = "^0.16.0"}
+
+[tool.poetry.dev-dependencies]
+black = "^21.12b0"
+flake8 = "^4.0.1"
+isort = "^5.10.1"
+mypy = "^0.930"
+sqlalchemy2-stubs = "^0.0.2-alpha.19"
+
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.0.0"]
+
+[tool.black]
+line-length = 99
+
+[tool.isort]
+skip = "migrations/**"
+
+[tool.mypy]
+exclude = """
+^migrations/env.py$
+^migrations/versions/.*.py$"""
+implicit_reexport = false
+plugins = "strawberry.ext.mypy_plugin,sqlalchemy.ext.mypy.plugin"
+profile = "black"
+
+[tool.pyright]
+exclude = ["migrations/**"]
+ignore = ["migrations/**"]
